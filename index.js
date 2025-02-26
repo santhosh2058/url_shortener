@@ -3,7 +3,7 @@ import { readFile, writeFile } from 'fs/promises'
 import crypto from 'crypto'
 import path from 'path'
 
-const port=3002;
+const PORT=process.env.PORT || 3000;
 const DATA_FILE = path.join("data","links.json");
 const loadLinks = async()=>{
   try{
@@ -84,6 +84,6 @@ const server=createServer(async(req,res)=>{
   }
 });
 
-server.listen(port,()=>{
-  console.log(`listening on port ${port}`);
+server.listen(PORT,"0.0.0.0",()=>{
+  console.log(`listening on port ${PORT}`);
 });
